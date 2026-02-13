@@ -1,209 +1,182 @@
-# 🚀 AI Resume Analyzer & ATS Enhancer
+# Resume Analyzer AI 🎯
 
-An intelligent Resume Analyzer built using **Python, Streamlit, and NLP** that evaluates resumes against job descriptions, calculates ATS scores, and generates enhanced professional resumes.
+An intelligent AI-powered resume optimization tool that analyzes, scores, and enhances resumes to match specific job descriptions using advanced NLP and generative AI.
 
----
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Render-46E3B7)](https://resume-analyser-ai-162n.onrender.com)
+[![Python](https://img.shields.io/badge/Python-3.10-blue)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.37.0-FF4B4B)](https://streamlit.io/)
+[![Google Gemini](https://img.shields.io/badge/Google-Gemini%20AI-4285F4)](https://ai.google.dev/)
 
-# 📌 Project Overview
+## 🚀 Live Application
 
-The AI Resume Analyzer helps job seekers optimize their resumes by:
+**Access the app here:** [https://resume-analyser-ai-162n.onrender.com](https://resume-analyser-ai-162n.onrender.com)
 
-* Comparing resumes with Job Descriptions
-* Calculating ATS Match Scores
-* Identifying missing keywords
-* Suggesting improvements
-* Generating enhanced formatted resumes
-* Providing downloadable resume versions
+## 📋 Overview
 
-This tool simulates real Applicant Tracking System (ATS) screening used by companies.
+Resume Analyzer AI helps job seekers optimize their resumes by:
+- **Analyzing** resume compatibility with job descriptions
+- **Identifying** missing keywords and skills
+- **Generating** enhanced, ATS-optimized resumes
 
----
+## ✨ Features
 
-# ✨ Features
+### 1. **Smart Resume Analysis**
+- Upload your resume (PDF format)
+- Paste target job description
+- Get instant compatibility scoring
+- Detailed breakdown of matching skills and experience
 
-✅ ATS Score Calculation
-✅ Keyword Match Analysis
-✅ Resume–JD Similarity Score
-✅ Missing Skills Detection
-✅ AI Enhanced Resume Generation
-✅ PDF Resume Download
-✅ TXT Resume Export
-✅ Professional Formatting
-✅ Dark Themed Dashboard UI
+### 2. **Gap Identification**
+- Identifies missing critical keywords
+- Highlights skill gaps
+- Provides actionable recommendations
 
----
+### 3. **AI-Powered Resume Enhancement**
+- Automatically rewrites resume content
+- Optimizes for ATS (Applicant Tracking Systems)
+- Maintains authentic experience while improving keyword density
+- Download enhanced resume as PDF
 
-# 🛠️ Tech Stack
+## 🛠️ Technology Stack
 
-**Frontend / UI**
+- **Frontend:** Streamlit
+- **AI/ML:** 
+  - Google Gemini AI (Generative AI)
+  - Sentence Transformers (Semantic understanding)
+  - FAISS (Vector similarity search)
+  - scikit-learn (Machine learning)
+- **PDF Processing:** PyPDF, ReportLab
+- **Backend:** Python 3.10
 
-* Streamlit
-* Custom CSS (Dark Theme)
+## 📦 Installation
 
-**Backend / Processing**
+### Prerequisites
+- Python 3.10 or higher
+- Google Gemini API Key
 
-* Python
-* NLP Processing
-* TF‑IDF Vectorization
-* Cosine Similarity
+### Local Setup
 
-**Libraries Used**
-
-* streamlit
-* scikit‑learn
-* numpy
-* pandas
-* reportlab
-* pypdf
-* re (Regex)
-
----
-
-# 📂 Project Structure
-
-```
-resume-analyzer/
-│
-├── app.py                  # Main Streamlit App
-├── ats_analyser.py         # ATS Scoring Logic
-├── resume_parser.py        # Resume Text Extraction
-├── resume_generator.py     # AI Resume Enhancement
-├── pdf_generator.py        # Professional PDF Creation
-├── rag_engine.py           # Retrieval logic (if used)
-├── requirements.txt        # Dependencies
-└── README.md               # Project Documentation
-```
-
----
-
-# ⚙️ Installation & Setup
-
-## 1️⃣ Clone Repository
-
+1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/resume-analyzer.git
-cd resume-analyzer
+git clone https://github.com/mahathi10M/Resume_analyser_ai.git
+cd Resume_analyser_ai
 ```
 
-## 2️⃣ Create Virtual Environment
-
+2. **Create virtual environment**
 ```bash
 python -m venv venv
-source venv/bin/activate   # Mac/Linux
-venv\Scripts\activate      # Windows
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-## 3️⃣ Install Requirements
-
+3. **Install dependencies**
 ```bash
 pip install -r requirements.txt
 ```
 
-## 4️⃣ Run Application
+4. **Set up environment variables**
 
+Create a `.env` file in the project root:
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+```
+
+Get your API key from: [Google AI Studio](https://aistudio.google.com/app/apikey)
+
+5. **Run the application**
 ```bash
 streamlit run app.py
 ```
 
-App will open at:
+The app will open in your browser at `http://localhost:8501`
 
+## 📝 Usage
+
+1. **Upload Resume**: Click "Upload your resume" and select your PDF file
+2. **Enter Job Description**: Paste the target job description in the text area
+3. **Analyze**: Click "Analyze Resume" to see compatibility score and gaps
+4. **Enhance**: Click "Generate Enhanced Resume" to create optimized version
+5. **Download**: Save your enhanced resume as PDF
+
+## 🏗️ Architecture
 ```
-http://localhost:8501
+Resume Analyzer AI
+│
+├── RAG Engine (rag_engine.py)
+│   ├── Vector Store (FAISS)
+│   ├── Sentence Transformers
+│   └── Semantic Retrieval
+│
+├── Resume Generator (resume_generator.py)
+│   ├── Google Gemini AI
+│   ├── Keyword Enhancement
+│   └── PDF Generation (ReportLab)
+│
+└── Streamlit Interface (app.py)
+    ├── File Upload
+    ├── Analysis Dashboard
+    └── Download Handler
 ```
 
----
+## 🌐 Deployment
 
-# 📊 How ATS Score Works
+Deployed on [Render](https://render.com)
 
-The ATS score is calculated using:
+### Deploy Your Own
 
-* **Keyword Match %** – Skills & tools overlap
-* **Resume–JD Similarity** – TF‑IDF cosine similarity
-* **Keyword Frequency** – Skill repetition weight
+1. Fork this repository
+2. Create a new Web Service on Render
+3. Connect your GitHub repository
+4. Add environment variable: `GEMINI_API_KEY`
+5. Deploy!
 
-### Weighted Formula
+**Build Command:** `pip install -r requirements.txt`  
+**Start Command:** `streamlit run app.py --server.port=$PORT --server.address=0.0.0.0`
 
+## 📄 Requirements
+```txt
+streamlit==1.37.0
+pypdf==4.2.0
+faiss-cpu==1.13.2
+sentence-transformers==3.0.1
+google-generativeai==0.7.2
+reportlab==4.2.2
+numpy==1.26.4
+scikit-learn==1.5.1
+tqdm==4.66.4
+python-dotenv==1.0.0
+torch==2.4.0
+transformers==4.44.0
 ```
-Final Score =
-(Keyword Match × 50%) +
-(Similarity × 30%) +
-(Frequency × 20%)
-```
 
-Score is normalized to simulate real ATS systems.
+## 🤝 Contributing
 
----
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-# 📄 Resume Enhancement
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-The system:
+## 📧 Contact
 
-* Rewrites bullet points professionally
-* Adds missing technical keywords
-* Improves formatting
-* Structures experience/projects
+**Mahathi** - [@mahathi10M](https://github.com/mahathi10M)
 
-Download formats:
+Project Link: [https://github.com/mahathi10M/Resume_analyser_ai](https://github.com/mahathi10M/Resume_analyser_ai)
 
-* PDF (Professional)
-* TXT (Plain text)
+## 📜 License
 
----
+This project is open source and available under the [MIT License](LICENSE).
 
-# 🌐 Deployment
+## Acknowledgments
 
-## Streamlit Cloud (Recommended)
-
-1. Push code to GitHub
-2. Go to [https://share.streamlit.io](https://share.streamlit.io)
-3. Select repo
-4. Deploy `app.py`
+- Google Gemini AI for generative capabilities
+- Streamlit for the amazing framework
+- FAISS for efficient similarity search
+- Hugging Face for Sentence Transformers
 
 ---
 
-## Netlify / Vercel
+⭐ **Star this repo if you found it helpful!**
 
-Only frontend builds supported.
-Python backends require Render/Railway.
-
----
-
-# 🧪 Sample Use Cases
-
-* Students optimizing resumes
-* Internship applications
-* Hackathon demos
-* Placement preparation
-* Career portals
-
----
-
-# 🔮 Future Enhancements
-
-* LLM Resume Feedback
-* Interview Question Generator
-* Portfolio Matching
-* Recruiter Dashboard
-* Multi‑Resume Comparison
-
----
-
-# 👩‍💻 Author
-
-**Mahathi Mahasivabhattu**
-B.Tech AIML Student
-Passionate about AI, GenAI & Healthcare Tech
-
-GitHub: [https://github.com/mahathi10M](https://github.com/mahathi10M)
-LinkedIn: [https://www.linkedin.com/in/mahathi-mahasivabhattu-bb7a8830a](https://www.linkedin.com/in/mahathi-mahasivabhattu-bb7a8830a)
-
----
-
-# 📜 License
-
-This project is for educational and research purposes.
-Free to use with attribution.
-
----
-
-⭐ If you like this project, consider giving it a star!
+**Live Demo:** [https://resume-analyser-ai-162n.onrender.com](https://resume-analyser-ai-162n.onrender.com)
